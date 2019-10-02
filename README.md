@@ -1,4 +1,4 @@
-# Github archive
+# Github archive visualisation
 
 > Github archive visualisation
 
