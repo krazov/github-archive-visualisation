@@ -1,5 +1,6 @@
 <template>
-    <nuxt-link :to='url'>{{ author }}</nuxt-link>
+    <a :href='`..${url}.html`'>{{ author }}</a>
+    <!--<nuxt-link :to='url'>{{ author }}</nuxt-link>-->
 </template>
 
 <script>

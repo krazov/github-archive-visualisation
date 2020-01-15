@@ -4,6 +4,31 @@
         mode="horizontal"
     >
         <a-menu-item key="opened">
+            <a :href="`${tab == 'none' ? '..' : '.'}/opened-issues.html`">
+                <a-icon type="heat-map" />Opened issues
+            </a>
+        </a-menu-item>
+        <a-menu-item key="closed">
+            <a :href="`${tab == 'none' ? '..' : '.'}/closed-issues.html`">
+                <a-icon type="delete" />Closed issues
+            </a>
+        </a-menu-item>
+        <a-menu-item key="prs">
+            <a :href="`${tab == 'none' ? '..' : '.'}/opened-pull-requests.html`">
+                <a-icon type="branches" />Opened pull requests
+            </a>
+        </a-menu-item>
+        <a-menu-item key="merged">
+            <a :href="`${tab == 'none' ? '..' : '.'}/closed-pull-requests.html`">
+                <a-icon type="fork" />Closed pull requests
+            </a>
+        </a-menu-item>
+    </a-menu>
+    <!--<a-menu
+        v-model="current"
+        mode="horizontal"
+    >
+        <a-menu-item key="opened">
             <nuxt-link to="/opened-issues">
                 <a-icon type="heat-map" />Opened issues
             </nuxt-link>
@@ -23,7 +48,7 @@
                 <a-icon type="fork" />Closed pull requests
             </nuxt-link>
         </a-menu-item>
-    </a-menu>
+    </a-menu>-->
 </template>
 
 <script>
@@ -33,7 +58,12 @@
     export default {
         name: 'navigation',
         props: {
-            current: defaultArray('opened'),
+            current: defaultArray(['opened']),
+        },
+        computed: {
+            tab() {
+                return this.current[0];
+            },
         },
     };
 </script>

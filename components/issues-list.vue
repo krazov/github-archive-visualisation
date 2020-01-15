@@ -8,14 +8,22 @@
             slot-scope="item"
         >
             <a-list-item-meta>
-                <nuxt-link
+                <a
+                    slot="title"
+                    :href='`./issue/${item.number}.html`'
+                >
+                    <code>[{{ item.number }}]</code>
+                    <b>{{ item.title }}</b>
+                    <i>{{ item.comments ? `(${item.comments} comment${item.comments == 1 ? '' : 's'})` : '' }}</i>
+                </a>
+                <!--<nuxt-link
                     slot="title"
                     :to='`/issue/${item.number}`'
                 >
                     <code>[{{ item.number }}]</code>
                     <b>{{ item.title }}</b>
                     <i>{{ item.comments ? `(${item.comments} comment${item.comments == 1 ? '' : 's'})` : '' }}</i>
-                </nuxt-link>
+                </nuxt-link>-->
             </a-list-item-meta>
         </a-list-item>
     </a-list>
